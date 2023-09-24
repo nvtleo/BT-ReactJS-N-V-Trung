@@ -1,13 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from './startbs/Header';
-import Home from './startbs/Home';
+import BTGioHang from './shoeStore/BTGioHang';
 
 function App() {
   return (
 
-    // <Header />
-    <Home />
+    <BTGioHang />
+
 
 
   );
