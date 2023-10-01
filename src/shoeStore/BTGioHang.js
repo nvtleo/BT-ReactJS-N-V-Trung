@@ -144,19 +144,14 @@ export default class BTGioHang extends Component {
         let spFind = this.state.productCart.find((proCart) => {
             return proCart.id === spGH.id
         })
-        console.log(spFind);
         if (spFind) {
             spFind.soLuong += 1
         } else {
             productCartUpdate.push(spGH);
         }
-
-        console.log(productCartUpdate);
-
         this.setState({
             productCart: productCartUpdate
         })
-
     }
     deleteCart = (proID) => {
         let productCartUpdate = [...this.state.productCart]
