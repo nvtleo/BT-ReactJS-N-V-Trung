@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import RowChair from './row-chair';
+import HangGhe from './hangGhe';
 export default class ListSeat extends Component {
     arraySeat = this.props.arraySeat
     array = [];
@@ -8,7 +8,7 @@ export default class ListSeat extends Component {
             let { hang, danhSachGhe } = obj;
             return <tr key={hang}>
                 <td>{hang}</td>
-                <RowChair danhSachGhe={danhSachGhe} array={this.array} />
+                <HangGhe danhSachGhe={danhSachGhe} array={this.array} />
             </tr>
         })
     }

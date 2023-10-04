@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from "react-redux";
 import { GHEDANGCHON } from '../redux/reducers/Project-movies/creator';
-class RowChair extends Component {
+class HangGhe extends Component {
 
 
     pushVitri = (seat) => {
@@ -43,4 +43,4 @@ class RowChair extends Component {
 }
 
 
-export default connect()(RowChair) 
+export default connect()(HangGhe) 

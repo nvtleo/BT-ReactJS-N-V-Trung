@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { GHEDADAT } from '../redux/reducers/Project-movies/creator'
 
-class SelectedSeat extends Component {
+class ChonGhe extends Component {
     state = {
         listReservedSeat: [],
     }
@@ -97,4 +97,4 @@ const mapStateToProps = (rootReducer) => {
     return { selectSeat: rootReducer.movieReducer }
 }
 
-export default connect(mapStateToProps)(SelectedSeat)
+export default connect(mapStateToProps)(ChonGhe)

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Header from './header'
 import ListSeat from './DSGhe'
 import "./css/style.css"
-import SelectedSeat from './selected-seat'
+import ChonGhe from './chonGhe'
 export default class Main extends Component {
     arraySeat = [
 
@@ -185,7 +185,7 @@ export default class Main extends Component {
                         </div>
                     </div>
                     <div className="col-5">
-                        <SelectedSeat arraySeat={this.arraySeat} />
+                        <ChonGhe arraySeat={this.arraySeat} />
                     </div>
                 </div>
             </>
