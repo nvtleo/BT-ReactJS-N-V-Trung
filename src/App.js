@@ -1,19 +1,14 @@
+// import logo from './logo.svg';
 import './App.css';
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import ChangeColorBox from './ChangeColorBox/Change';
-import BTGioHang from './shoeStore/BTGioHang';
-import Change from './ChangeColorBox/Change';
-import BookTickets from './BookTickets/BookTickets';
+import Main from './Project-movies/Main';
+
+
 
 function App() {
   return (
-
-    // <BTGioHang />
-    // <Change />
-    <BookTickets />
-
-
+    <div className="App">
+      <Main />
+    </div>
   );
 }
 

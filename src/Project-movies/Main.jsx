@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import css from "./style.module.css";
-import { megeClassName } from '../utils';
-import Table from './table';
-import TableInfo from './tableInfo';
-import { connect } from "react-redux";
+import React, { Component, Fragment } from 'react'
+import Header from './header'
+import ListSeat from './DSGhe'
+import "./css/style.css"
+import SelectedSeat from './selected-seat'
+export default class Main extends Component {
+    arraySeat = [
 
-class BookTickets extends Component {
-    mangGhe = [
         {
             "hang": "A",
             "danhSachGhe": [
@@ -20,8 +19,8 @@ class BookTickets extends Component {
                 { "soGhe": "A8", "gia": 75000, "daDat": false },
                 { "soGhe": "A9", "gia": 75000, "daDat": false },
                 { "soGhe": "A10", "gia": 75000, "daDat": false },
-                { "soGhe": "A11", "gia": 0, "daDat": true },
-                { "soGhe": "A12", "gia": 0, "daDat": true }
+                { "soGhe": "A11", "gia": 75000, "daDat": false },
+                { "soGhe": "A12", "gia": 75000, "daDat": false }
             ]
         },
         {
@@ -175,60 +174,21 @@ class BookTickets extends Component {
     render() {
         return (
             <>
-                <div className={css["background"]}>
-                    <h1 className={megeClassName(css.h1__title)}>MOVIE SEAT SELECTION</h1>
-                    <div className="content container">
-                        <h5 style={{ color: "white" }} >Fill The Required Details Below And Select Your Seats</h5>
-                        <div className="row">
-                            <div className="col-7">
-                                <form>
-                                    <div className="form-group">
-                                        <label style={{ color: "white" }} htmlFor="exampleInputEmail1">Name  </label>
-                                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                                    </div>
-                                </form>
-                            </div>
-                            <div className="col-5">
-                                <form>
-                                    <div className="form-group">
-                                        <label style={{ color: "white" }} htmlFor="exampleInputEmail1">
-                                            Number of Seats *</label>
-                                        <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                                    </div>
-                                </form>
-                            </div>
+                <div className='bg-img'>
+                    <div className="overlay"></div>
+                </div>
+                <div className='row'>
+                    <div className="col-7">
+                        <div className="container">
+                            <Header />
+                            <ListSeat arraySeat={this.arraySeat} />
                         </div>
-                        <button type="button" className="btn btn-primary">Start selecting</button>
-                        <div className="row" style={{ alignItems: "center" }}>
-                            <span style={{ backgroundColor: "blue " }} className={megeClassName(css.seat)}></span>
-                            <span className={css["span"]}>Selected Seat</span>
-                            <span style={{ backgroundColor: "red" }} className={megeClassName(css.seat)}></span>
-                            <span className={css["span"]}>Reserved Seat</span>
-                            <span style={{ backgroundColor: "white" }} className={megeClassName(css.seat)}></span>
-                            <span className={css["span"]}>Empty Seat</span>
-
-                        </div>
-                        <p className={css["content__title"]}> <span style={{ backgroundColor: "orange" }}>Please Select your Seats NOW!</span></p>
                     </div>
-                    <Table mangGhe={this.mangGhe} />
-                    <p className={css["content__title"]}> <span className={css["screen"]}>SCREEN THIS WAY</span></p>
-                    <p className={css["btn__select"]}><button className={css["btn__select"]}>Confirm Selection</button></p>
-                    <TableInfo mangGhe={this.mangGhe} />
-                    <p className={css["footer"]}>© 2018 Movie Seat Selection . All Rights Reserved | Design by W3layouts</p>
-                </div >
-
+                    <div className="col-5">
+                        <SelectedSeat arraySeat={this.arraySeat} />
+                    </div>
+                </div>
             </>
         )
     }
 }
-const mapStateToProps = (rootReducer) => {
-    console.log(rootReducer)
-    return {
-    };
-};
-const mapDispatchToProps = (dispatch) => {
-    return {
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BookTickets);
