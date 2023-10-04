@@ -58,11 +58,6 @@ class SelectedSeat extends Component {
                 <div>
                     <button type="button" className="gheDangChon" data-toggle="collapse" href="#ghedangchon">Ghế đang chọn</button>
                 </div>
-                <div>
-                    <button type="button" className="gheConTrong" data-toggle="collapse" href="#ghecontrong" >Ghế còn trống</button>
-                </div>
-
-
                 <div id="ghedangchon" className='collapse'>
                     <h2 style={{ textAlign: "center" }}>Danh sách ghế bạn chọn</h2>
                     <table className="table table-bordered " >
@@ -93,21 +88,6 @@ class SelectedSeat extends Component {
                         </tbody>
                     </table>
                 </div>
-                <div id="ghecontrong" className='collapse'>
-                    <h2 style={{ textAlign: "center" }}>Danh sách ghế còn trống</h2>
-                    <table className="table table-bordered " >
-                        <thead>
-                            <tr>
-                                <th scope="col">Số ghế</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* {this.setTableSelectSeat()} */}
-                        </tbody>
-                    </table>
-                </div>
-
-
             </div>
         )
     }

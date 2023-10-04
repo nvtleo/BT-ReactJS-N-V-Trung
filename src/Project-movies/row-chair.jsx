@@ -1,8 +1,6 @@
-import React, { Component, Fragment } from 'react'
-import { connect } from "react-redux"
-import { MOVIES } from '../redux/reducers/Project-movies/const'
-import { GHEDANGCHON } from '../redux/reducers/Project-movies/creator'
-
+import React, { Component, Fragment } from 'react';
+import { connect } from "react-redux";
+import { GHEDANGCHON } from '../redux/reducers/Project-movies/creator';
 class RowChair extends Component {
 
 
