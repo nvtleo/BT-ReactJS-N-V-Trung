@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { deleteCreator } from './conect/creator';
+import { eidtCreator } from './conect/creator';
 class ListSV extends Component {
     render() {
         return (
@@ -25,7 +26,7 @@ class ListSV extends Component {
                                     <td>{sv.email}</td>
                                     <td>
                                         <button onClick={() => {
-
+                                            this.props.dispatch(eidtCreator(sv))
                                         }}
                                         >Edit</button>
                                         <button

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Header from './Header';
 import { flushSync } from "react-dom";
 import { connect } from "react-redux";
-import { submitCreator } from './conect/creator';
+import { submitCreator, updateCreator } from './conect/creator';
 // import { css } from "./style/style.module.css"
 class FormDK extends Component {
     state = {
@@ -36,7 +36,8 @@ class FormDK extends Component {
                     // xét id không được trùng
 
                     const isLife = this.props.listSV.find((sv) => +sv.id === Number(value[key]));
-                    if (isLife) {
+                    const isNotEdit = !this.props.listSVEdit;
+                    if (isLife && isNotEdit) {
                         newError[key] = "id đã tồn tại"
                     }
                     // id phải là số
@@ -128,7 +129,7 @@ class FormDK extends Component {
         // kiểm tra nếu có 1 message error nào thì không cho submit
         const ready = Object.values(newError).every((i) => i.length === 0);
         if (ready === false) return;
-        const action = submitCreator(this.state.value)
+        const action = this.props.listSVEdit ? updateCreator(this.state.value) : submitCreator(this.state.value)
         this.props.dispatch(action);
         this.setState({
             value: {
@@ -146,7 +147,20 @@ class FormDK extends Component {
         }
         )
     };
+    static getDerivedStateFromProps(newProps, currentState) {
+        if (newProps.listSVEdit !== null) {
+            // Lấy giá trị props.productEdit cập nhật 1 lần trước đó rồi.
+            // Lần sau chúng ta sẽ không cần cập nhật lại nữa
+            if (newProps.listSVEdit.id !== currentState.value.id)
+                return {
+                    value: newProps.listSVEdit,
+                };
+        }
+        // không cập nhật lại state
+        return null;
+    }
     render() {
+        console.log({ props: this.props }, "12345")
         return (
             <form onSubmit={this.handleSubmit}>
                 <Header />
@@ -156,6 +170,7 @@ class FormDK extends Component {
                             <label htmlFor="exampleInputEmail1">Mã sinh viên</label>
                             <input
                                 name="id"
+                                disabled={this.props.listSVEdit}
                                 value={this.state.value.id}
                                 onBlur={this.handleBlur}
                                 onChange={this.handleChange}
@@ -205,16 +220,19 @@ class FormDK extends Component {
                         </div>
                     </div>
                     <button
-                        style={{ marginLeft: "10px" }} type="submit" className="btn btn-success ">Thêm sinh viên</button>
+                        style={{ marginLeft: "10px" }} type="submit" className="btn btn-success ">
+                        {this.props.listSVEdit ? "Cập nhật" : "Thêm sinh viên"}
+                    </button>
                 </div>
             </form>
         )
     }
 }
 const mapStateToProps = (rootReducer) => {
-    console.log(rootReducer)
+
     return {
-        listSV: rootReducer.reactFormReducer.listSV
+        listSV: rootReducer.reactFormReducer.listSV,
+        listSVEdit: rootReducer.reactFormReducer.listSVEdit
 
     };
 };
