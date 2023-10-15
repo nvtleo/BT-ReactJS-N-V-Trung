@@ -1,13 +1,15 @@
 // import logo from './logo.svg';
 import './App.css';
-import Main from './Project-movies/Main';
+import FormAll from './Form/FormAll';
+
+
 
 
 
 function App() {
   return (
-    <div className="App">
-      <Main />
+    <div className="App container">
+      <FormAll />
     </div>
   );
 }

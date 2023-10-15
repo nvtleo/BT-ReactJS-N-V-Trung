@@ -5,8 +5,6 @@ class HangGhe extends Component {
 
 
     pushVitri = (seat) => {
-        // this.props.a.push(seat)
-        // console.log(this.a, "â")
         let index = this.props.array.findIndex((vitri) => {
             return seat.soGhe === vitri.soGhe
         })
